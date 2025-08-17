@@ -28,8 +28,20 @@ int _printf(const char *format, ...)
 				the_char = va_arg(the_string, int);
 				write(1, &the_char, 1);
 			}
+			else if (format[count] == 's')
+			{
+				the_char = va_arg(the_string, char *);
+				write(1, &the_char, 1);
+			}
+			else
+			{
+				;
+			}
 		}
-		write(1, &format[count], 1);
+		else
+		{
+			write(1, &format[count], 1);
+		}
 	}
 	va_end(the_string);
 	return (strlen(format));
