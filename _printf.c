@@ -33,5 +33,5 @@ int _printf(const char *format, ...)
 		write(1, &format[count], 1);
 	}
 	va_end(the_string);
-	return (strlen(format));
+	return (_strlen(format));
 }
