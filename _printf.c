@@ -19,5 +19,5 @@ int _printf(const char *format, ...)
 	va_start(the_string, format);
 	write(1, &format[count], 1);
 	va_end(the_string);
-	return (strlen(the_str));
+	return (strlen(format));
 }
