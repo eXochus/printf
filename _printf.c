@@ -20,8 +20,6 @@ int _printf(const char *format, ...)
 	char *the_str;
 	char the_spec;
 	int str_count;
-	int lit_count;
-	char *the_lit;
 
 	count = 0;
 	va_start(the_string, format);
@@ -44,9 +42,7 @@ int _printf(const char *format, ...)
 			write(1, &the_spec, 1);
 			break;
 		default:
-			the_lit = va_arg(the_string, char *);
-			for (lit_count = 0; the_lit[lit_count] != '\0'; lit_count++)
-				write(1, &the_lit[lit_count], 1);
+			write(1, &format[count], 1);
 			break;
 		}
 		count++;
