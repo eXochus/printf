@@ -30,7 +30,6 @@ int _printf(const char *format, ...)
 		{
 		case 'c':
 			the_char = va_arg(the_string, int);
-			(char)the_char;
 			write(1, &the_char, 1);
 			break;
 		case 's':
@@ -40,7 +39,6 @@ int _printf(const char *format, ...)
 			break;
 		case '%':
 			the_spec = va_arg(the_string, int);
-			(char)the_spec;
 			write(1, &the_spec, 1);
 			break;
 		default:
