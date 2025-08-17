@@ -16,6 +16,8 @@ int _printf(const char *format, ...)
 	va_list the_string;
 	unsigned int count;
 	int the_char;
+	char *the_str;
+	int j;
 
 	va_start(the_string, format);
 	for (count = 0; format[count] != '\0'; count++)
@@ -30,8 +32,9 @@ int _printf(const char *format, ...)
 			}
 			else if (format[count] == 's')
 			{
-				the_char = va_arg(the_string, char *);
-				write(1, &the_char, 1);
+				the_str = va_arg(the_string, char *);
+				for (j = 0; the_str[j]; j++)
+					write(1, &the_str[j], 1);
 			}
 			else
 			{
