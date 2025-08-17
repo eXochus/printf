@@ -27,6 +27,7 @@ int _printf(const char *format, ...)
 			{
 				the_char = va_arg(the_string, int);
 				write(1, &the_char, 1);
+				count++;
 			}
 		}
 		write(1, &format[count], 1);
