@@ -18,7 +18,14 @@ int _printf(const char *format, ...)
 
 	va_start(the_string, format);
 	for (count = 0; format[count] != '\0'; count++)
+	{
+		if (format[count] == '%')
+		{
+			count++;
+			if (format[count] == 'c')
+				write(1, &va_arg(the_string, int), 1);
 		write(1, &format[count], 1);
+		}
 	va_end(the_string);
 	return (strlen(format));
 }
