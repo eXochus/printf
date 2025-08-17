@@ -15,6 +15,7 @@ int _printf(const char *format, ...)
 {
 	va_list the_string;
 	unsigned int count;
+	int the_char;
 
 	va_start(the_string, format);
 	for (count = 0; format[count] != '\0'; count++)
@@ -23,9 +24,12 @@ int _printf(const char *format, ...)
 		{
 			count++;
 			if (format[count] == 'c')
-				write(1, &va_arg(the_string, int), 1);
+			{
+				the_char = va_arg(the_string, int);
+				write(1, &the_char, 1);
 		write(1, &format[count], 1);
 		}
+	}
 	va_end(the_string);
 	return (strlen(format));
 }
