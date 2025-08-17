@@ -27,11 +27,11 @@ int _printf(const char *format, ...)
 			{
 				the_char = va_arg(the_string, int);
 				write(1, &the_char, 1);
-				count++;
 			}
 		}
 		write(1, &format[count], 1);
 	}
 	va_end(the_string);
-	return (_strlen(format));
+	return (strlen(format));
+
 }
