@@ -16,6 +16,7 @@ int _printf(const char *format, ...)
 	va_list the_string;
 	unsigned int count;
 
+	count = 0;
 	va_start(the_string, format);
 	write(1, &format[count], 1);
 	va_end(the_string);
