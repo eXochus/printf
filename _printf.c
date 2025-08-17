@@ -1,8 +1,5 @@
-#include <stdarg.h>
 #include "main.h"
-#include <stdio.h>
 #include <unistd.h>
-#include <string.h>
 
 /**
  * _printf - printf whatever is given to stdo
@@ -47,6 +44,6 @@ int _printf(const char *format, ...)
 		}
 	}
 	va_end(the_string);
-	return (strlen(format));
+	return (count);
 
 }
