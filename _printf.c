@@ -34,6 +34,10 @@ int _printf(const char *format, ...)
 			else if (format[count] == 's')
 			{
 				the_str = va_arg(the_string, char *);
+				if (the_str == NULL)
+				{
+					write(1, "(null)", 6);
+					char_prnt += 6;
 				for (j = 0; the_str[j]; j++)
 				{
 					write(1, &the_str[j], 1);
