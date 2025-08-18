@@ -38,6 +38,7 @@ int _printf(const char *format, ...)
 				{
 					write(1, "(null)", 6);
 					char_prnt += 6;
+				}
 				for (j = 0; the_str[j]; j++)
 				{
 					write(1, &the_str[j], 1);
