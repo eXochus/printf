@@ -37,10 +37,10 @@ int _printf(const char *format, ...)
 				write(1, &the_char, 1);
 				char_prnt++;
 			}
-			else if (format[count] == 'z')
+			else if (format[count] == '%')
 			{
 				the_formatt = va_arg(the_string, int);
-				write(1, &the_char, 1);
+				write(1, &the_formatt, 1);
 				char_prnt++;
 			}
 			else if (format[count] == 's')
