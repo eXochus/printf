@@ -17,8 +17,14 @@ int _printf(const char *format, ...)
 	char *the_str;
 	int j;
 	int char_prnt;
+	int the_formatt;
+	int the_slash;
 
 	char_prnt = 0;
+	if (format == NULL)
+	{
+		;
+	}
 	va_start(the_string, format);
 	for (count = 0; format[count] != '\0'; count++)
 	{
@@ -28,6 +34,12 @@ int _printf(const char *format, ...)
 			if (format[count] == 'c')
 			{
 				the_char = va_arg(the_string, int);
+				write(1, &the_char, 1);
+				char_prnt++;
+			}
+			else if (format[count] == 'z')
+			{
+				the_formatt = va_arg(the_string, int);
 				write(1, &the_char, 1);
 				char_prnt++;
 			}
@@ -51,6 +63,16 @@ int _printf(const char *format, ...)
 			else
 			{
 				;
+			}
+		}
+		else if (format[count] == '\')
+		{
+			count++;
+			if (format[count] == 'n')
+			{
+				the_slash = va_arg(the_string, int);
+				write(1, 'n', 1);
+				char_prnt++;
 			}
 		}
 		else
