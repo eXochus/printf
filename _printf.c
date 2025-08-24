@@ -65,7 +65,7 @@ int _printf(const char *format, ...)
 				;
 			}
 		}
-		else if (format[count] == '\')
+		else if (format[count] == '\\')
 		{
 			count++;
 			if (format[count] == 'n')
