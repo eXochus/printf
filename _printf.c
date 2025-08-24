@@ -70,8 +70,8 @@ int _printf(const char *format, ...)
 			count++;
 			if (format[count] == 'n')
 			{
-				the_slash = va_arg(the_string, int);
-				write(1, '\n', 1);
+				the_slash = '\n';
+				write(1, &the_slash, 1);
 				char_prnt++;
 			}
 		}
