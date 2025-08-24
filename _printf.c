@@ -71,7 +71,7 @@ int _printf(const char *format, ...)
 			if (format[count] == 'n')
 			{
 				the_slash = va_arg(the_string, int);
-				write(1, 'n', 1);
+				write(1, '\n', 1);
 				char_prnt++;
 			}
 		}
