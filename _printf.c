@@ -21,16 +21,22 @@ int _printf(const char *format, ...)
 	int the_slash;
 
 	char_prnt = 0;
-	if (format == NULL)
-	{
-		;
-	}
 	va_start(the_string, format);
+	if (!format)
+	{
+		return (-1);
+	}
 	for (count = 0; format[count] != '\0'; count++)
 	{
 		if (format[count] == '%')
 		{
 			count++;
+			if (format[count] == '\0')
+			{
+				va_end(the_string);
+				return (-1);
+			}
+			
 			if (format[count] == 'c')
 			{
 				the_char = va_arg(the_string, int);
@@ -39,7 +45,7 @@ int _printf(const char *format, ...)
 			}
 			else if (format[count] == '%')
 			{
-				the_formatt = va_arg(the_string, int);
+				the_formatt = format[count];
 				write(1, &the_formatt, 1);
 				char_prnt++;
 			}
@@ -62,7 +68,9 @@ int _printf(const char *format, ...)
 			}
 			else
 			{
-				;
+				write(1, &format[count - 1], 1);
+				write(1, &format[count], 1);
+				char_prnt +=2;
 			}
 		}
 		else if (format[count] == '\\')
