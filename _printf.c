@@ -19,7 +19,8 @@ int _printf(const char *format, ...)
 	int char_prnt;
 	int the_formatt;
 	int the_slash;
-	int the_int;
+	char *the_int;
+	int k;
 	int the_intt;
 
 	char_prnt = 0;
@@ -70,9 +71,12 @@ int _printf(const char *format, ...)
 			}
 			else if (format[count] == 'd')
 			{
-				the_int = va_arg(the_string, int);
-				write(1, &the_int, 1);
-				char_prnt++;
+				the_int = va_arg(the_string, char *);
+				for (k = 0; the_int[k]; k++)
+				{
+					write(1, &the_int[k], 1);
+					char_prnt++;
+				}
 			}
 			else if (format[count] == 'i')
 			{
