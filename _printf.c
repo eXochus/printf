@@ -19,6 +19,8 @@ int _printf(const char *format, ...)
 	int char_prnt;
 	int the_formatt;
 	int the_slash;
+	int the_int;
+	int the_intt;
 
 	char_prnt = 0;
 	va_start(the_string, format);
@@ -65,6 +67,18 @@ int _printf(const char *format, ...)
 						char_prnt++;
 					}
 				}
+			}
+			else if (format[count] == 'd')
+			{
+				the_int = va_arg(the_string, int);
+				write(1, &the_int, 1);
+				char_prnt++;
+			}
+			else if (format[count] == 'i')
+			{
+				the_intt = va_arg(the_string, int);
+				write(1, &the_intt, 1);
+				char_prnt++;
 			}
 			else
 			{
