@@ -72,7 +72,7 @@ int _printf(const char *format, ...)
 			else if (format[count] == 'd')
 			{
 				the_int = va_arg(the_string, char *);
-				for (k = 0; the_int[k]; k++)
+				for (k = 0; the_int[k] != '\0'; k++)
 				{
 					write(1, &the_int[k], 1);
 					char_prnt++;
