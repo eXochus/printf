@@ -1,6 +1,7 @@
 #include "main.h"
 #include <unistd.h>
 #include <stdarg.h>
+#include <stdio.h>
 
 /**
  * _printf - printf whatever is given to stdo
