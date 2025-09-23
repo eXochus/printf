@@ -72,7 +72,7 @@ int _printf(const char *format, ...)
 					}
 				}
 			}
-			else if (format[count] == 'd')
+			else if (format[count] == 'd' || format[count] == 'i')
 			{
 				the_int = va_arg(the_string, char *);
 				int_lenght = sprintf(the_cint, "%d", the_int);
@@ -82,12 +82,12 @@ int _printf(const char *format, ...)
 					char_prnt++;
 				}
 			}
-			else if (format[count] == 'i')
+			/*else if (format[count] == 'i')
 			{
 				the_intt = va_arg(the_string, int);
 				write(1, &the_intt, 1);
 				char_prnt++;
-			}
+			}*/
 			else
 			{
 				write(1, &format[count - 1], 1);
