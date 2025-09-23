@@ -24,6 +24,9 @@ int _printf(const char *format, ...)
 	int k;
 	char the_cint[20];
 	int int_lenght;
+	char the_bint;
+	int bin_len;
+	char *the_bin;
 
 	char_prnt = 0;
 	va_start(the_string, format);
@@ -81,12 +84,16 @@ int _printf(const char *format, ...)
 					char_prnt++;
 				}
 			}
-			/*else if (format[count] == 'i')
+			else if (format[count] == 'b')
 			{
-				the_intt = va_arg(the_string, int);
-				write(1, &the_intt, 1);
-				char_prnt++;
-			}*/
+				the_bin = va_arg(the_string, char *);
+				bin_len = sprintf(the_bint, "%b", the_bin);
+				for (l = 0; l < bin_len; l++)
+				{
+					write(1, &the_bint[l], 1);
+					char_prnt++;
+				}
+			}
 			else
 			{
 				write(1, &format[count - 1], 1);
