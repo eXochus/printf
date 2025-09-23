@@ -75,7 +75,7 @@ int _printf(const char *format, ...)
 			else if (format[count] == 'd')
 			{
 				the_int = va_arg(the_string, char *);
-				int_lenght = sprintf(the_cint, "%d\n", the_int);
+				int_lenght = sprintf(the_cint, "%d", the_int);
 				for (k = 0; k < int_lenght; k++)
 				{
 					write(1, &the_cint[k], 1);
