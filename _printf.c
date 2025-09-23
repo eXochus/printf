@@ -27,6 +27,7 @@ int _printf(const char *format, ...)
 	char the_bint;
 	int bin_len;
 	char *the_bin;
+	int l;
 
 	char_prnt = 0;
 	va_start(the_string, format);
