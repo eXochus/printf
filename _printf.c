@@ -22,7 +22,6 @@ int _printf(const char *format, ...)
 	int the_slash;
 	char *the_int;
 	int k;
-	int the_intt;
 	char the_cint[20];
 	int int_lenght;
 
