@@ -22,6 +22,8 @@ int _printf(const char *format, ...)
 	char *the_int;
 	int k;
 	int the_intt;
+	char the_cint[20];
+	int int_lenght;
 
 	char_prnt = 0;
 	va_start(the_string, format);
@@ -72,9 +74,10 @@ int _printf(const char *format, ...)
 			else if (format[count] == 'd')
 			{
 				the_int = va_arg(the_string, char *);
-				for (k = 0; the_int[k] != '\0'; k++)
+				int_lenght = sprintf(the_cint, "%d\n", the_int);
+				for (k = 0; k < int_lenght; k++)
 				{
-					write(1, &the_int[k], 1);
+					write(1, &the_cint[k], 1);
 					char_prnt++;
 				}
 			}
